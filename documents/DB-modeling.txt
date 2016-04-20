@@ -1,0 +1,64 @@
+
+
+Entities
+
+User
+  - firstname
+  - lastname
+  - CNP/pasaport
+  - telefon
+  - card (placeholder, OPT)
+  - data de nastere
+  - rating (range de la 1 la 5 cu default rating: 0, insemnand fara comanda)
+
+  
+Comentariu
+  - text (OPT)
+  - nota
+-> validare: nota <=3  =>  text non optional
+
+Vehicul
+  - marca
+  - model
+  - nr. inmatriculare
+  - cod talon
+  - an
+  - capacitate_transport (volum)
+  - masa maxima admisa
+  - poate_cara_obj_fragile
+  - BLOB (poza talon)
+  - lista<BLOB>  (poze vehicul)
+
+Driver  ->  User
+	- lista<Comentariu> 
+	- perioada_valabilitate
+	- activat
+	- available
+	- oras_de_baza
+	- raza_de_actiune
+	- lista<Vehicul>
+	
+Adresa
+		- oras
+		- strada
+		- numar_strada
+		- nr_bloc (OPT)
+	
+Tranzitie
+		- Stare_Tranzitie
+		- Text (OPT)
+	
+Comanda
+    - Customer
+    - Driver
+    - Adresa (adresa pickup)
+    - Adresa (adresa livrare)	
+	- Stare_Comanda (Enumuri ... vezi si scenarii google drive)
+	- lista<Tranzitie>
+	- pret_total
+	- perioada_de_livrare (timp de transport, incluzand incarcare si descarcare)
+	- fast_delivery (OPT, pentru un raspuns prompt de la driver)
+	
+Customer  ->  User
+	- lista<Comanda>
+	- 
