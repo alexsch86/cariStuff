@@ -85,6 +85,11 @@
 					<url>jdbc:postgresql://localhost:5432/caristuffdb</url>
 					<user>caristuff</user>
 					<password>caristuff</password>
+                    <schemas>
+                        <schema>caristuff</schema>
+                    </schemas>
+                    <cleanDisabled>false</cleanDisabled>
+                    <skip>false</skip>
 				</configuration>
 				<dependencies>
 					<dependency>
