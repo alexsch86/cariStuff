@@ -82,9 +82,9 @@
 				<artifactId>flyway-maven-plugin</artifactId>
 				<version>4.0</version>
 				<configuration>
-					<url>jdbc:postgresql://localhost:5432/cariStuffDB</url>
-					<user>cariStuff</user>
-					<password>cariStuff</password>
+					<url>jdbc:postgresql://localhost:5432/caristuffdb</url>
+					<user>caristuff</user>
+					<password>caristuff</password>
 				</configuration>
 				<dependencies>
 					<dependency>
