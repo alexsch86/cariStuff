@@ -1,12 +1,12 @@
 package org.learning.caristuff.domain.jpa;
 
-import junit.framework.TestCase;
+import org.springframework.boot.test.IntegrationTest;
 
-public class JpaRepositoryTest extends TestCase {
+@IntegrationTest
+public class JpaRepositoryIntegrationTest {
 
     
     public void setUp() throws Exception {
-        super.setUp();
 
     }
 
@@ -21,5 +21,5 @@ public class JpaRepositoryTest extends TestCase {
     public void Delete_RemovesTheEntity() throws Exception {
 
     }
-    
+
 }
