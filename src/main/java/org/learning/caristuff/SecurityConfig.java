@@ -1,4 +1,4 @@
-package org.learning;
+package org.learning.caristuff;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package org.learning;
+package org.learning.caristuff;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
