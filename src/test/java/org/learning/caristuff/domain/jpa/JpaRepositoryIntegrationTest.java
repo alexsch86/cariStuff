@@ -1,9 +1,10 @@
 package org.learning.caristuff.domain.jpa;
 
+import org.learning.caristuff.InfrastructureIntegrationTest;
 import org.springframework.boot.test.IntegrationTest;
 
 @IntegrationTest
-public class JpaRepositoryIntegrationTest {
+public class JpaRepositoryIntegrationTest extends InfrastructureIntegrationTest {
 
     
     public void setUp() throws Exception {
