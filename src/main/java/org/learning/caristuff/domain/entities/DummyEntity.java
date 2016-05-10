@@ -11,17 +11,24 @@ import java.util.Date;
 @Table(name = DummyEntity.DUMMY_ENTITY_TABLE_NAME)
 public class DummyEntity extends JpaAggregateRoot<DummyEntity, Long> {
 
-    public static final String DUMMY_ENTITY_TABLE_NAME = "dummytable";
+    static final String DUMMY_ENTITY_TABLE_NAME = "dummytable";
     private static final String ID_COLUMN = "id";
 
     @Id
     @Column(nullable = false, name = ID_COLUMN)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "some_integer")
     private Integer someInteger;
+
+    @Column(name = "some_number")
     private BigDecimal someNumber;
+
+    @Column(name = "some_date")
     private Date someDate;
 
     private DummyEntity() {
@@ -36,7 +43,6 @@ public class DummyEntity extends JpaAggregateRoot<DummyEntity, Long> {
         this.id = id;
     }
 
-    @Column(name = "description")
     public String getDescription() {
         return description;
     }
@@ -45,7 +51,6 @@ public class DummyEntity extends JpaAggregateRoot<DummyEntity, Long> {
         this.description = description;
     }
 
-    @Column(name = "some_integer")
     public Integer getSomeInteger() {
         return someInteger;
     }
@@ -54,7 +59,6 @@ public class DummyEntity extends JpaAggregateRoot<DummyEntity, Long> {
         this.someInteger = someInteger;
     }
 
-    @Column(name = "some_number")
     public BigDecimal getSomeNumber() {
         return someNumber;
     }
@@ -63,7 +67,6 @@ public class DummyEntity extends JpaAggregateRoot<DummyEntity, Long> {
         this.someNumber = someNumber;
     }
 
-    @Column(name = "some_date")
     public Date getSomeDate() {
         return someDate;
     }
