@@ -13,7 +13,7 @@ import javax.persistence.PersistenceContext;
 import static org.joda.time.DateTimeUtils.setCurrentMillisSystem;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {InfrastructureConfigTest.class})
+@ContextConfiguration(classes = {InfrastructureConfigTest.class, ConfigEnvironmentTest.class})
 public class InfrastructureIntegrationTest {
 
     @PersistenceContext
