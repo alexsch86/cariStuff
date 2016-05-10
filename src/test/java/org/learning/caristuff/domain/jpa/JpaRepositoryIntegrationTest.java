@@ -6,7 +6,7 @@ import org.springframework.boot.test.IntegrationTest;
 @IntegrationTest
 public class JpaRepositoryIntegrationTest extends InfrastructureIntegrationTest {
 
-    
+    @Override
     public void setupData() {
 
     }

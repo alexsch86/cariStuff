@@ -1,5 +1,7 @@
 package org.learning.caristuff.domain.entities;
 
+import org.learning.caristuff.common.Builder;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -21,7 +23,7 @@ public class DummyEntity {
     private Date someDate;
 
 
-    public DummyEntity() {
+    private DummyEntity() {
     }
 
     @Id
@@ -35,17 +37,9 @@ public class DummyEntity {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     @Column(name = "some_integer")
     public Integer getSomeInteger() {
         return someInteger;
-    }
-
-    public void setSomeInteger(Integer someInteger) {
-        this.someInteger = someInteger;
     }
 
     @Column(name = "some_number")
@@ -53,18 +47,53 @@ public class DummyEntity {
         return someNumber;
     }
 
-    public void setSomeNumber(BigDecimal someNumber) {
-        this.someNumber = someNumber;
-    }
-
     @Column(name = "some_date")
     public Date getSomeDate() {
         return someDate;
     }
 
-    public void setSomeDate(Date someDate) {
-        this.someDate = someDate;
-    }
+    public static class DummyEntityBuilder implements Builder<DummyEntity> {
 
+        private String description;
+        private Integer someInteger;
+        private BigDecimal someNumber;
+        private Date someDate;
+
+        private DummyEntityBuilder() {
+        }
+
+        public static DummyEntityBuilder dummyEntity() {
+            return new DummyEntityBuilder();
+        }
+
+        public DummyEntityBuilder withDescription(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public DummyEntityBuilder withSomeInteger(Integer someInteger) {
+            this.someInteger = someInteger;
+            return this;
+        }
+
+        public DummyEntityBuilder withSomeNumber(BigDecimal someNumber) {
+            this.someNumber = someNumber;
+            return this;
+        }
+
+        public DummyEntityBuilder withSomeDate(Date someDate) {
+            this.someDate = someDate;
+            return this;
+        }
+
+        public DummyEntity build() {
+            DummyEntity dummyEntity = new DummyEntity();
+            dummyEntity.description = this.description;
+            dummyEntity.someInteger = this.someInteger;
+            dummyEntity.someNumber = this.someNumber;
+            dummyEntity.someDate = someDate;
+            return dummyEntity;
+        }
+    }
 
 }
