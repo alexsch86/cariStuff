@@ -23,7 +23,6 @@ public class DummyEntity extends JpaAggregateRoot<DummyEntity, Long> {
     private BigDecimal someNumber;
     private Date someDate;
 
-
     private DummyEntity() {
     }
 
@@ -34,9 +33,17 @@ public class DummyEntity extends JpaAggregateRoot<DummyEntity, Long> {
         return id;
     }
 
+    private void setId(Long id) {
+        this.id = id;
+    }
+
     @Column(name = "description")
     public String getDescription() {
         return description;
+    }
+
+    private void setDescription(String description) {
+        this.description = description;
     }
 
     @Column(name = "some_integer")
@@ -44,14 +51,26 @@ public class DummyEntity extends JpaAggregateRoot<DummyEntity, Long> {
         return someInteger;
     }
 
+    private void setSomeInteger(Integer someInteger) {
+        this.someInteger = someInteger;
+    }
+
     @Column(name = "some_number")
     public BigDecimal getSomeNumber() {
         return someNumber;
     }
 
+    private void setSomeNumber(BigDecimal someNumber) {
+        this.someNumber = someNumber;
+    }
+
     @Column(name = "some_date")
     public Date getSomeDate() {
         return someDate;
+    }
+
+    private void setSomeDate(Date someDate) {
+        this.someDate = someDate;
     }
 
     public static class DummyEntityBuilder implements Builder<DummyEntity> {
@@ -90,10 +109,10 @@ public class DummyEntity extends JpaAggregateRoot<DummyEntity, Long> {
 
         public DummyEntity build() {
             DummyEntity dummyEntity = new DummyEntity();
-            dummyEntity.description = this.description;
-            dummyEntity.someInteger = this.someInteger;
-            dummyEntity.someNumber = this.someNumber;
-            dummyEntity.someDate = someDate;
+            dummyEntity.setDescription(this.description);
+            dummyEntity.setSomeInteger(this.someInteger);
+            dummyEntity.setSomeNumber(this.someNumber);
+            dummyEntity.setSomeDate(someDate);
             return dummyEntity;
         }
     }

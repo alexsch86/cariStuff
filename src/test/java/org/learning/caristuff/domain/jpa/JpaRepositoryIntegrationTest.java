@@ -1,5 +1,6 @@
 package org.learning.caristuff.domain.jpa;
 
+import org.junit.Test;
 import org.learning.caristuff.InfrastructureIntegrationTest;
 import org.learning.caristuff.domain.entities.DummyEntity;
 import org.learning.caristuff.domain.repository.DummyEntityRepository;
@@ -36,6 +37,7 @@ public class JpaRepositoryIntegrationTest extends InfrastructureIntegrationTest 
                 .build();
     }
 
+    @Test
     public void Save_FindById_savesAnEntityAndFindsIt() throws Exception {
 
         dummyEntityRepository.save(dummyEntity);

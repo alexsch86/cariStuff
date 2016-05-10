@@ -8,8 +8,8 @@ import javax.inject.Named;
 @Named
 public class DummyEntityRepository extends JpaRepository<DummyEntity, Long> {
 
-    public DummyEntityRepository(Class<DummyEntity> clazz) {
-        super(clazz);
+    private DummyEntityRepository() {
+        super(DummyEntity.class);
     }
 
 }

@@ -15,4 +15,8 @@ public abstract class JpaAggregateRoot<ENTITY extends JpaAggregateRoot<ENTITY, I
         return version;
     }
 
+    private void setVersion(int version) {
+        this.version = version;
+    }
+
 }

@@ -34,7 +34,7 @@ public class InfrastructureConfigTest {
     @Value("${db.dialect}")
     private String dbDialect;
 
-    @Bean(destroyMethod = "close")
+    @Bean
     public DataSource dataSource() {
         PGSimpleDataSource dataSource = new PGSimpleDataSource();
         dataSource.setUrl(url);
