@@ -8,7 +8,7 @@ import javax.persistence.Version;
 public abstract class JpaAggregateRoot<ENTITY extends JpaAggregateRoot<ENTITY, ID>, ID> extends BaseEntity<ENTITY, ID> {
 
     @Version
-    @Column
+    @Column(name = "version")
     private int version = 0;
 
     public int getVersion() {

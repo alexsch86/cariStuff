@@ -1,6 +1,7 @@
 package org.learning.caristuff.domain.entities;
 
 import org.learning.caristuff.common.Builder;
+import org.learning.caristuff.domain.jpa.JpaAggregateRoot;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +12,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = DummyEntity.DUMMY_ENTITY_TABLE_NAME)
-public class DummyEntity {
+public class DummyEntity extends JpaAggregateRoot<DummyEntity, Long> {
 
     public static final String DUMMY_ENTITY_TABLE_NAME = "dummytable";
     private static final String ID_COLUMN = "id";
@@ -28,6 +29,7 @@ public class DummyEntity {
 
     @Id
     @Column(nullable = false, name = ID_COLUMN)
+    @Override
     public Long getId() {
         return id;
     }
