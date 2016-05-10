@@ -11,7 +11,9 @@ import javax.inject.Inject;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import static org.fest.reflect.core.Reflection.field;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.learning.caristuff.domain.entities.DummyEntity.DummyEntityBuilder.dummyEntity;
 
 @IntegrationTest
@@ -21,6 +23,7 @@ public class JpaRepositoryIntegrationTest extends InfrastructureIntegrationTest 
     private static final String SOME_DESCRIPTION = "myDescription";
     private static final BigDecimal SOME_NUMBER = BigDecimal.valueOf(643);
     private static final Date SOME_DATE = DateUtils.create(2016, 5, 9).getTime();
+    private static final String OTHER_DESCRIPTION = "anotherDescription";
 
     @Inject
     private DummyEntityRepository dummyEntityRepository;
@@ -35,11 +38,12 @@ public class JpaRepositoryIntegrationTest extends InfrastructureIntegrationTest 
                 .withSomeNumber(SOME_NUMBER)
                 .withSomeDate(SOME_DATE)
                 .build();
+
+        dummyEntityRepository.save(dummyEntity);
     }
 
     @Test
     public void Save_FindById_savesAnEntityAndFindsIt() throws Exception {
-        dummyEntityRepository.save(dummyEntity);
 
         DummyEntity dummyEntityById = dummyEntityRepository.findById(dummyEntity.getId());
 
@@ -49,12 +53,23 @@ public class JpaRepositoryIntegrationTest extends InfrastructureIntegrationTest 
         assertEquals(SOME_DATE, dummyEntityById.getSomeDate());
     }
 
+    @Test
     public void Merge_UpdatesEntity() throws Exception {
+        field("description").ofType(String.class).in(dummyEntity).set(OTHER_DESCRIPTION);
 
+        dummyEntityRepository.merge(dummyEntity);
+
+        DummyEntity dummyEntityById = dummyEntityRepository.findById(dummyEntity.getId());
+        assertEquals(SOME_INTEGER, dummyEntityById.getSomeInteger());
+        assertEquals(OTHER_DESCRIPTION, dummyEntityById.getDescription());
+        assertEquals(SOME_NUMBER, dummyEntityById.getSomeNumber());
+        assertEquals(SOME_DATE, dummyEntityById.getSomeDate());
     }
 
+    @Test
     public void Delete_RemovesTheEntity() throws Exception {
-
+        dummyEntityRepository.delete(dummyEntity.getId());
+        assertNull(dummyEntityRepository.findById(dummyEntity.getId()));
     }
 
 }

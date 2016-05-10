@@ -37,12 +37,21 @@ public class JpaRepository<ENTITY extends JpaAggregateRoot<ENTITY, ID>, ID> impl
     }
 
     public ENTITY merge(ENTITY entity) {
-        return null;
+        try {
+            ENTITY merge = entityManager.merge(entity);
+            entityManager.lock(merge, LockModeType.OPTIMISTIC_FORCE_INCREMENT);
+            return merge;
+        } catch (JpaOptimisticLockingFailureException e) {
+            throw new RuntimeException("MESSAGE.CONCURRENT_MODIFICATION", e);
+        }
     }
 
     public void delete(ID id) {
+        ENTITY entity = id == null ? null : findById(id);
 
+        if(entity != null) {
+            entityManager.remove(entity);
+        }
     }
-
 
 }
