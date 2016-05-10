@@ -8,6 +8,4 @@ CREATE ROLE caristuff LOGIN
 ENCRYPTED PASSWORD 'md5a8bdf867ee11e75e0cd3e04357a65f74'
 SUPERUSER INHERIT CREATEDB CREATEROLE REPLICATION VALID UNTIL '2016-10-31 00:00:00';
 
-ALTER ROLE caristuff IN DATABASE caristuffdb
-SET application_name = 'caristuffapp';
 GRANT caristuffrole TO caristuff;
