@@ -7,7 +7,7 @@ import org.springframework.boot.test.IntegrationTest;
 public class JpaRepositoryIntegrationTest extends InfrastructureIntegrationTest {
 
     
-    public void setUp() throws Exception {
+    public void setupData() {
 
     }
 
