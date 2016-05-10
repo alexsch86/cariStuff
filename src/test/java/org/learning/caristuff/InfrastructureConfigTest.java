@@ -4,6 +4,7 @@ import org.postgresql.ds.PGSimpleDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.AdviceMode;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.aspectj.EnableSpringConfigured;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -17,6 +18,7 @@ import javax.sql.DataSource;
 @Configuration
 @EnableSpringConfigured
 @EnableTransactionManagement(mode = AdviceMode.PROXY)
+@ComponentScan(value = {"org.learning.caristuff.domain.repository", "org.learning.caristuff.domain.entities"})
 public class InfrastructureConfigTest {
 
     @Value("${db.url}")
