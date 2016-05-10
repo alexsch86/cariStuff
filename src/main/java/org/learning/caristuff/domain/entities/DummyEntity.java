@@ -3,10 +3,7 @@ package org.learning.caristuff.domain.entities;
 import org.learning.caristuff.common.Builder;
 import org.learning.caristuff.domain.jpa.JpaAggregateRoot;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -17,7 +14,11 @@ public class DummyEntity extends JpaAggregateRoot<DummyEntity, Long> {
     public static final String DUMMY_ENTITY_TABLE_NAME = "dummytable";
     private static final String ID_COLUMN = "id";
 
+    @Id
+    @Column(nullable = false, name = ID_COLUMN)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String description;
     private Integer someInteger;
     private BigDecimal someNumber;
@@ -26,8 +27,6 @@ public class DummyEntity extends JpaAggregateRoot<DummyEntity, Long> {
     private DummyEntity() {
     }
 
-    @Id
-    @Column(nullable = false, name = ID_COLUMN)
     @Override
     public Long getId() {
         return id;

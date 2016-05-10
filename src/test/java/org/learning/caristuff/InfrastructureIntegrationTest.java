@@ -4,20 +4,17 @@ package org.learning.caristuff;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.joda.time.DateTimeUtils.setCurrentMillisSystem;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {InfrastructureConfigTest.class, ConfigEnvironmentTest.class})
-public class InfrastructureIntegrationTest {
-
-    @PersistenceContext
-    protected EntityManager entityManager;
+@SpringApplicationConfiguration(classes = {InfrastructureConfigTest.class, ConfigEnvironmentTest.class})
+@Transactional
+public class InfrastructureIntegrationTest extends AbstractJUnit4SpringContextTests {
 
     @Before
     public void initDB() {

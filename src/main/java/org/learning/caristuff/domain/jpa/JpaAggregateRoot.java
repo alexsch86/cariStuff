@@ -9,7 +9,7 @@ public abstract class JpaAggregateRoot<ENTITY extends JpaAggregateRoot<ENTITY, I
 
     @Version
     @Column(name = "version")
-    private int version = 0;
+    private int version = 1;
 
     public int getVersion() {
         return version;

@@ -17,9 +17,9 @@ import static org.learning.caristuff.domain.entities.DummyEntity.DummyEntityBuil
 @IntegrationTest
 public class JpaRepositoryIntegrationTest extends InfrastructureIntegrationTest {
 
-    private static final Integer MY_INTEGER = 26;
-    private static final String MY_DESCRIPTION = "myDescription";
-    private static final BigDecimal MY_NUMBER = BigDecimal.valueOf(643);
+    private static final Integer SOME_INTEGER = 26;
+    private static final String SOME_DESCRIPTION = "myDescription";
+    private static final BigDecimal SOME_NUMBER = BigDecimal.valueOf(643);
     private static final Date SOME_DATE = DateUtils.create(2016, 5, 9).getTime();
 
     @Inject
@@ -30,24 +30,23 @@ public class JpaRepositoryIntegrationTest extends InfrastructureIntegrationTest 
     @Override
     public void setupData() {
         dummyEntity = dummyEntity()
-                .withDescription(MY_DESCRIPTION)
-                .withSomeInteger(MY_INTEGER)
-                .withSomeNumber(MY_NUMBER)
+                .withDescription(SOME_DESCRIPTION)
+                .withSomeInteger(SOME_INTEGER)
+                .withSomeNumber(SOME_NUMBER)
                 .withSomeDate(SOME_DATE)
                 .build();
     }
 
     @Test
     public void Save_FindById_savesAnEntityAndFindsIt() throws Exception {
-
         dummyEntityRepository.save(dummyEntity);
 
         DummyEntity dummyEntityById = dummyEntityRepository.findById(dummyEntity.getId());
 
-        assertEquals(dummyEntity.getSomeInteger(), dummyEntityById.getSomeInteger());
-        assertEquals(dummyEntity.getDescription(), dummyEntityById.getDescription());
-        assertEquals(dummyEntity.getSomeNumber(), dummyEntityById.getSomeNumber());
-        assertEquals(dummyEntity.getSomeDate(), dummyEntityById.getSomeDate());
+        assertEquals(SOME_INTEGER, dummyEntityById.getSomeInteger());
+        assertEquals(SOME_DESCRIPTION, dummyEntityById.getDescription());
+        assertEquals(SOME_NUMBER, dummyEntityById.getSomeNumber());
+        assertEquals(SOME_DATE, dummyEntityById.getSomeDate());
     }
 
     public void Merge_UpdatesEntity() throws Exception {
