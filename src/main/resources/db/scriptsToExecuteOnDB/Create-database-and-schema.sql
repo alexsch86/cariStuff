@@ -5,8 +5,8 @@ CREATE DATABASE caristuffdb
 WITH OWNER = caristuffrole
 ENCODING = 'UTF8'
 TABLESPACE = pg_default
-LC_COLLATE = 'Romanian_Romania.1250'
-LC_CTYPE = 'Romanian_Romania.1250'
+LC_COLLATE = 'English_United States.1252'
+LC_CTYPE = 'English_United States.1252'
 CONNECTION LIMIT = -1;
 
 ALTER ROLE caristuff IN DATABASE caristuffdb
