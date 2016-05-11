@@ -2,10 +2,9 @@ package org.learning.caristuff.domain.repository;
 
 import org.learning.caristuff.domain.entities.DummyEntity;
 import org.learning.caristuff.domain.jpa.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import javax.inject.Named;
-
-@Named
+@Repository
 public class DummyEntityRepository extends JpaRepository<DummyEntity, Long> {
 
     private DummyEntityRepository() {
