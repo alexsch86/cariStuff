@@ -1,4 +1,4 @@
-package org.learning.caristuff;
+package org.learning.caristuff.config;
 
 import org.postgresql.ds.PGSimpleDataSource;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 @EnableSpringConfigured
 @EnableTransactionManagement(mode = AdviceMode.ASPECTJ)
 @ComponentScan(value = {"org.learning.caristuff.domain.repository", "org.learning.caristuff.domain.entities"})
-public class InfrastructureConfigTest {
+public class InfrastructureTestConfig {
 
     @Value("${db.url}")
     private String url;

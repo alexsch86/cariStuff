@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class DummyEntityRepository extends JpaRepository<DummyEntity, Long> {
 
-    private DummyEntityRepository() {
+     public DummyEntityRepository() {
         super(DummyEntity.class);
     }
 

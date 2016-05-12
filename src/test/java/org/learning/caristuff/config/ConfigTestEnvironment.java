@@ -1,4 +1,4 @@
-package org.learning.caristuff;
+package org.learning.caristuff.config;
 
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.context.annotation.Bean;
@@ -10,7 +10,7 @@ import org.springframework.core.io.UrlResource;
 import java.net.MalformedURLException;
 
 @Configuration
-public class ConfigEnvironmentTest {
+public class ConfigTestEnvironment {
 
     private static final String ENVIRONMENT_PROPERTY_FILE_NAME = "environment-local.properties";
 
