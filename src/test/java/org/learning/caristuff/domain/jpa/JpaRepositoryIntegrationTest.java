@@ -4,10 +4,10 @@ import org.junit.Test;
 import org.learning.caristuff.InfrastructureIntegrationTest;
 import org.learning.caristuff.domain.entities.DummyEntity;
 import org.learning.caristuff.domain.repository.DummyEntityRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.IntegrationTest;
 import org.thymeleaf.util.DateUtils;
 
-import javax.inject.Inject;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -25,7 +25,7 @@ public class JpaRepositoryIntegrationTest extends InfrastructureIntegrationTest 
     private static final Date SOME_DATE = DateUtils.create(2016, 5, 9).getTime();
     private static final String OTHER_DESCRIPTION = "anotherDescription";
 
-    @Inject
+    @Autowired
     private DummyEntityRepository dummyEntityRepository;
 
     private DummyEntity dummyEntity;

@@ -13,7 +13,7 @@ import java.util.Date;
 @Table(name = User.USER_ENTITY_TABLE_NAME)
 public class User extends JpaAggregateRoot<User, Long> {
 
-    static final String USER_ENTITY_TABLE_NAME = "user";
+    static final String USER_ENTITY_TABLE_NAME = "usertable";
 
     @Id
     @Column(nullable = false, name = "id")
@@ -36,10 +36,11 @@ public class User extends JpaAggregateRoot<User, Long> {
     private String cardNumber;
 
     @Column(nullable = false, name = "birth_date")
+    @Temporal(TemporalType.DATE)
     private Date birthDate;
 
     @Column(nullable = false, name = "rating")
-    private Integer rating;
+    private Integer rating = 0;
 
     public User() {
     }
