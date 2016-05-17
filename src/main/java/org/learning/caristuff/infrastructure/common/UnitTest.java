@@ -1,4 +1,4 @@
-package org.learning.caristuff.common;
+package org.learning.caristuff.infrastructure.common;
 
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
