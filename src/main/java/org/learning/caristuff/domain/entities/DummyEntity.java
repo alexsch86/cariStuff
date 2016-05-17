@@ -2,6 +2,7 @@ package org.learning.caristuff.domain.entities;
 
 import org.learning.caristuff.infrastructure.common.Builder;
 import org.learning.caristuff.domain.jpa.JpaAggregateRoot;
+import org.learning.caristuff.infrastructure.validation.Length;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -20,9 +21,11 @@ public class DummyEntity extends JpaAggregateRoot<DummyEntity, Long> {
     private Long id;
 
     @Column(name = "description")
+    @Length(value = 10)
     private String description;
 
     @Column(name = "some_integer")
+    @Length(value = 3)
     private Integer someInteger;
 
     @Column(name = "some_number")

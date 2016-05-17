@@ -21,8 +21,6 @@ public abstract class EntityValidator<ENTITY> implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-        if(errors.hasFieldErrors()) {
-        }
     }
 
 }
