@@ -81,9 +81,24 @@
 			<artifactId>fest-reflect</artifactId>
 			<version>1.4.1</version>
 			<scope>test</scope>
-		</dependency>
+        </dependency>
+        <!-- http://mvnrepository.com/artifact/org.mockito/mockito-all -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.9.5</version>
+        </dependency>
 
-	</dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit-dep</artifactId>
+        </dependency>
+
+    </dependencies>
 	
 	<build>
 		<plugins>
