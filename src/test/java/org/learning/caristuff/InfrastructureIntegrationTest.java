@@ -3,6 +3,7 @@ package org.learning.caristuff;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.learning.caristuff.config.InfrastructureTestConfig;
 import org.learning.caristuff.config.ConfigTestEnvironment;
@@ -16,6 +17,7 @@ import static org.joda.time.DateTimeUtils.setCurrentMillisSystem;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {InfrastructureTestConfig.class, ConfigTestEnvironment.class})
 @Transactional
+@Ignore
 public class InfrastructureIntegrationTest extends AbstractJUnit4SpringContextTests {
 
     @Before
