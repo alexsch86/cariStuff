@@ -21,7 +21,7 @@ public class DummyEntity extends JpaAggregateRoot<DummyEntity, Long> {
     private Long id;
 
     @Column(name = "description")
-    @Length(value = 10)
+    @Length(value = 15)
     private String description;
 
     @Column(name = "some_integer")
