@@ -19,7 +19,8 @@ import javax.sql.DataSource;
 @Configuration
 @EnableSpringConfigured
 @EnableTransactionManagement(mode = AdviceMode.ASPECTJ)
-@ComponentScan(value = {"org.learning.caristuff.domain.repository", "org.learning.caristuff.domain.entities"})
+@ComponentScan(value = {"org.learning.caristuff.domain.repository", "org.learning.caristuff.domain.entities",
+        "org.learning.caristuff.infrastructure.common"})
 public class InfrastructureTestConfig {
 
     @Value("${db.url}")

@@ -27,6 +27,7 @@ public class ConfigTestEnvironment {
             if (urlResource.exists())
                 return urlResource;
         } catch (MalformedURLException e) {
+            e.printStackTrace();
         }
 
         return new ClassPathResource(getEnvironmentPropertyFileName());

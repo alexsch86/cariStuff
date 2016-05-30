@@ -26,7 +26,8 @@ public class JpaRepositoryIntegrationTest extends InfrastructureIntegrationTest 
     private static final String SOME_DESCRIPTION = "myDescription";
     private static final BigDecimal SOME_NUMBER = BigDecimal.valueOf(643);
     private static final Date SOME_DATE = DateUtils.create(2016, 5, 9).getTime();
-    private static final String OTHER_DESCRIPTION = "anotherDescription";
+    private static final String OTHER_DESCRIPTION = "description2";
+    private static final String OTHER_DESCRIPTION_2 = "otherBigDescription";
     public static final int INTEGER_WITH_MORE_THAN_3_CHARACTERS = 3985;
 
     @Autowired
@@ -63,11 +64,17 @@ public class JpaRepositoryIntegrationTest extends InfrastructureIntegrationTest 
 
         dummyEntityRepository.merge(dummyEntity);
 
-        DummyEntity dummyEntityById = dummyEntityRepository.findById(dummyEntity.getId());
-        assertEquals(SOME_INTEGER, dummyEntityById.getSomeInteger());
-        assertEquals(OTHER_DESCRIPTION, dummyEntityById.getDescription());
-        assertEquals(SOME_NUMBER, dummyEntityById.getSomeNumber());
-        assertEquals(SOME_DATE, dummyEntityById.getSomeDate());
+        assertEquals(SOME_INTEGER, dummyEntity.getSomeInteger());
+        assertEquals(OTHER_DESCRIPTION, dummyEntity.getDescription());
+        assertEquals(SOME_NUMBER, dummyEntity.getSomeNumber());
+        assertEquals(SOME_DATE, dummyEntity.getSomeDate());
+    }
+
+    @Test(expected = ConstraintViolationException.class)
+    public void Merge_DescriptionTooBig_ThrowsException() throws Exception {
+        field("description").ofType(String.class).in(dummyEntity).set(OTHER_DESCRIPTION_2);
+
+        dummyEntityRepository.merge(dummyEntity);
     }
 
     @Test

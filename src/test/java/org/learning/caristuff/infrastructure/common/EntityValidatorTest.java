@@ -9,7 +9,7 @@ import org.mockito.InjectMocks;
 public class EntityValidatorTest extends UnitTest {
 
     @InjectMocks
-    private EntityValidator<DummyEntity> validatorForDummyEntity;
+    private EntityValidator validatorForDummyEntity;
 
     @Test
     public void validate_whenDummyEntityIsValid_doesNotThrowError() throws Exception {

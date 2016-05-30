@@ -1,5 +1,7 @@
 package org.learning.caristuff.domain.jpa;
 
+import org.learning.caristuff.infrastructure.common.EntityValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.jpa.JpaOptimisticLockingFailureException;
 
 import javax.persistence.EntityManager;
@@ -13,6 +15,9 @@ public class JpaRepository<ENTITY extends JpaAggregateRoot<ENTITY, ID>, ID> impl
 
     protected final Class<ENTITY> clazz;
 
+    @Autowired
+    private EntityValidator entityValidator;
+
     public JpaRepository(Class<ENTITY> clazz) {
         this.clazz = clazz;
     }
@@ -20,6 +25,7 @@ public class JpaRepository<ENTITY extends JpaAggregateRoot<ENTITY, ID>, ID> impl
     @Override
     public void save(ENTITY entity) {
         try {
+            entityValidator.validate(entity, null);
             entityManager.persist(entity);
             entityManager.lock(entity, LockModeType.OPTIMISTIC_FORCE_INCREMENT);
         } catch (JpaOptimisticLockingFailureException e) {
@@ -38,6 +44,7 @@ public class JpaRepository<ENTITY extends JpaAggregateRoot<ENTITY, ID>, ID> impl
 
     public ENTITY merge(ENTITY entity) {
         try {
+            entityValidator.validate(entity, null);
             ENTITY merge = entityManager.merge(entity);
             entityManager.lock(merge, LockModeType.OPTIMISTIC_FORCE_INCREMENT);
             return merge;
