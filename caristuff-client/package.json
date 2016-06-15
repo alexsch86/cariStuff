@@ -6,6 +6,8 @@
   "dependencies": {},
   "devDependencies": {
     "babel-preset-es2015": "^6.9.0",
+    "bower": "^1.7.9",
+    "bower-files": "^3.13.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2"
   },
@@ -17,6 +19,6 @@
     "furniture",
     "move"
   ],
-  "author": "alexands",
+  "author": "alexsch86 kinkey",
   "license": "ISC"
 }
