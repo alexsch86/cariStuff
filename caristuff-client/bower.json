@@ -1,0 +1,22 @@
+{
+  "name": "caristuff-client",
+  "description": "Client of caristuff",
+  "main": "js/index.js",
+  "authors": [
+    "alexsch86 kinkey"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "furniture",
+    "move"
+  ],
+  "homepage": "https://github.com/alexsch86/cariStuff",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
