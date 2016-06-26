@@ -1,5 +1,6 @@
 package org.learning.caristuff.domain.jpa.entity;
 
+import org.joda.time.DateTime;
 import org.junit.Test;
 import org.learning.caristuff.InfrastructureIntegrationTest;
 import org.learning.caristuff.domain.entities.DummyEntity;
@@ -7,7 +8,6 @@ import org.learning.caristuff.domain.entities.User;
 import org.learning.caristuff.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.IntegrationTest;
-import org.thymeleaf.util.DateUtils;
 
 
 import java.util.Date;
@@ -28,7 +28,7 @@ public class UserEntityTest extends InfrastructureIntegrationTest {
     private static final String LAST_NAME = "User";
     private static final String IDENTIFIER = "09876543212";
     private static final String PHONE_NUMBER = "0764123123";
-    private static final Date DATE = DateUtils.create(2016, 5, 9).getTime();
+    private static final Date DATE = new DateTime(2016, 5, 9, 0, 0).toDate();
     private static final String OTHER_FIRST_NAME = "Otherz";
 
 

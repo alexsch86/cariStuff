@@ -1,13 +1,12 @@
 package org.learning.caristuff.domain.jpa;
 
+import org.joda.time.DateTime;
 import org.junit.Test;
 import org.learning.caristuff.InfrastructureIntegrationTest;
 import org.learning.caristuff.domain.entities.DummyEntity;
-import org.learning.caristuff.domain.entities.DummyEntityTestBuilder;
 import org.learning.caristuff.domain.repository.DummyEntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.IntegrationTest;
-import org.thymeleaf.util.DateUtils;
 
 import javax.validation.ConstraintViolationException;
 import java.math.BigDecimal;
@@ -25,7 +24,7 @@ public class JpaRepositoryIntegrationTest extends InfrastructureIntegrationTest 
     private static final Integer SOME_INTEGER = 26;
     private static final String SOME_DESCRIPTION = "myDescription";
     private static final BigDecimal SOME_NUMBER = BigDecimal.valueOf(643);
-    private static final Date SOME_DATE = DateUtils.create(2016, 5, 9).getTime();
+    private static final Date SOME_DATE = new DateTime(2016, 5, 9, 0, 0).toDate();
     private static final String OTHER_DESCRIPTION = "description2";
     private static final String OTHER_DESCRIPTION_2 = "otherBigDescription";
     public static final int INTEGER_WITH_MORE_THAN_3_CHARACTERS = 3985;

@@ -1,6 +1,6 @@
 package org.learning.caristuff.domain.entities;
 
-import org.thymeleaf.util.DateUtils;
+import org.joda.time.DateTime;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -12,7 +12,7 @@ public class DummyEntityTestBuilder {
     private String description = "a description";
     private Integer someInteger = 745;
     private BigDecimal someNumber = BigDecimal.TEN;
-    private Date someDate = DateUtils.create(2016, 5, 23).getTime();
+    private Date someDate = new DateTime(2016, 5, 23, 10, 0).toDate();
 
     private DummyEntityTestBuilder() {
     }
