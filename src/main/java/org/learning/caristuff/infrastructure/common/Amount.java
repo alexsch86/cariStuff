@@ -2,8 +2,8 @@ package org.learning.caristuff.infrastructure.common;
 
 import org.learning.caristuff.infrastructure.validation.Required;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;

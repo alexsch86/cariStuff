@@ -1,7 +1,7 @@
 package org.learning.caristuff.infrastructure.validation;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 
 public class LengthValidatorForLong implements ConstraintValidator<Length, Long> {
 

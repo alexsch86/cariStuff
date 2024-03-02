@@ -1,10 +1,10 @@
 package org.learning.caristuff.domain.entities;
 
+import jakarta.persistence.*;
 import org.learning.caristuff.infrastructure.common.Builder;
 import org.learning.caristuff.domain.jpa.JpaAggregateRoot;
 import org.learning.caristuff.infrastructure.validation.Length;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 

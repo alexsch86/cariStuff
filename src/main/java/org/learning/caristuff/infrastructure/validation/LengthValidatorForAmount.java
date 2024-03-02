@@ -2,8 +2,8 @@ package org.learning.caristuff.infrastructure.validation;
 
 import org.learning.caristuff.infrastructure.common.Amount;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 
 public class LengthValidatorForAmount implements ConstraintValidator<Length, Amount> {
 

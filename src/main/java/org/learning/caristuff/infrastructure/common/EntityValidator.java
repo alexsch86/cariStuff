@@ -1,22 +1,22 @@
 package org.learning.caristuff.infrastructure.common;
 
 
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.Validation;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
-import javax.validation.Validation;
 import java.util.Set;
 
 import static com.google.common.collect.Collections2.transform;
-import static org.apache.commons.lang.StringUtils.join;
+import static org.apache.commons.lang3.StringUtils.join;
 
 @Service
 public class EntityValidator implements Validator {
 
-    private javax.validation.Validator targetValidator;
+    private final jakarta.validation.Validator targetValidator;
 
     public EntityValidator() {
         this.targetValidator = Validation.buildDefaultValidatorFactory().getValidator();

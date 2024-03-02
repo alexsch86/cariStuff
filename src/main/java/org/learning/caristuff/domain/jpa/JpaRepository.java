@@ -4,9 +4,9 @@ import org.learning.caristuff.infrastructure.common.EntityValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.jpa.JpaOptimisticLockingFailureException;
 
-import javax.persistence.EntityManager;
-import javax.persistence.LockModeType;
-import javax.persistence.PersistenceContext;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.LockModeType;
+import jakarta.persistence.PersistenceContext;
 
 public class JpaRepository<ENTITY extends JpaAggregateRoot<ENTITY, ID>, ID> implements Repository<ENTITY, ID> {
 

@@ -3,7 +3,7 @@ package org.learning.caristuff.domain.entities;
 import org.learning.caristuff.infrastructure.common.Builder;
 import org.learning.caristuff.domain.jpa.JpaAggregateRoot;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 /**

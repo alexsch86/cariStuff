@@ -4,7 +4,6 @@ import org.learning.caristuff.infrastructure.config.InfrastructureConfig;
 import org.learning.caristuff.services.config.ServiceConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.context.annotation.Import;
 
 @SpringBootApplication

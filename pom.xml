@@ -5,7 +5,7 @@
 
 	<groupId>org.learning</groupId>
 	<artifactId>cariStuff</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>cariStuff</name>
@@ -14,16 +14,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.3.3.RELEASE</version>
+		<version>3.2.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.8</java.version>
-        <junit.version>4.11</junit.version>
-		<aspectj.version>1.8.9</aspectj.version>
-		<spring.version>4.2.5.RELEASE</spring.version>
+		<java.version>17</java.version>
+        <junit.version>4.13.2</junit.version>
 	</properties>
 
 	<dependencies>
@@ -51,29 +49,16 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-        <dependency>
-            <groupId>javax.inject</groupId>
-            <artifactId>javax.inject</artifactId>
-            <version>1</version>
-        </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
 
-		<!-- spring aspects and aspectJ -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-aspects</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjrt</artifactId>
-			<version>${aspectj.version}</version>
-		</dependency>
-		
 		<!-- database -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-            <version>9.4.1208.jre7</version>
+            <version>42.7.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -105,20 +90,15 @@
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit-dep</artifactId>
-            <version>${junit.version}</version>
-        </dependency>
 		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>2.6</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.12.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-			<version>19.0</version>
+			<version>33.0.0-jre</version>
 		</dependency>
 
     </dependencies>
@@ -128,12 +108,15 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<goal>repackage</goal>
+				</configuration>
 			</plugin>
 
 			<plugin>
 				<groupId>org.flywaydb</groupId>
 				<artifactId>flyway-maven-plugin</artifactId>
-				<version>4.0</version>
+				<version>10.8.1</version>
 				<configuration>
 					<url>jdbc:postgresql://localhost:5432/caristuffdb</url>
 					<user>caristuff</user>

@@ -3,12 +3,9 @@ package org.learning.caristuff.domain.jpa.entity;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.learning.caristuff.InfrastructureIntegrationTest;
-import org.learning.caristuff.domain.entities.DummyEntity;
 import org.learning.caristuff.domain.entities.User;
 import org.learning.caristuff.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.IntegrationTest;
-
 
 import java.util.Date;
 
@@ -19,7 +16,6 @@ import static org.junit.Assert.assertNull;
 /**
  * Created by kinks on 5/12/2016.
  */
-@IntegrationTest
 public class UserEntityTest extends InfrastructureIntegrationTest {
 
     private static final Integer RATING = 0;

@@ -1,14 +1,13 @@
 package org.learning.caristuff.domain.jpa;
 
+import jakarta.validation.ConstraintViolationException;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.learning.caristuff.InfrastructureIntegrationTest;
 import org.learning.caristuff.domain.entities.DummyEntity;
 import org.learning.caristuff.domain.repository.DummyEntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.IntegrationTest;
 
-import javax.validation.ConstraintViolationException;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -18,7 +17,6 @@ import static org.junit.Assert.assertNull;
 import static org.learning.caristuff.domain.entities.DummyEntity.DummyEntityBuilder.dummyEntity;
 import static org.learning.caristuff.domain.entities.DummyEntityTestBuilder.someDummyEntityTestBuilder;
 
-@IntegrationTest
 public class JpaRepositoryIntegrationTest extends InfrastructureIntegrationTest {
 
     private static final Integer SOME_INTEGER = 26;
